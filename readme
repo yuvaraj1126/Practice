@@ -1,0 +1,18 @@
+npm create vite @latest
+npm install -D tailwindcss@3 postcss autoprefixer
+npx tailwindcss init -p
+content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+React Router-npm i react-router-dom
+
+
+use params is used for user/:username 
+
+
+npm install @reduxjs/toolkit react-redux
