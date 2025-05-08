@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setUsers } from '../slices/userSlice';
 
 function Home() {
+  //dispatch the action 
+  const dispatch =useDispatch()
     const [formInput, setformInput] =useState({
         name :"",
         age : "",
@@ -18,6 +22,12 @@ function Home() {
             };
         });
     };
+
+const addUser =(event)=>{
+  event.preventDefault();
+dispatch(setUsers(formInput));
+};
+
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <form className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm space-y-4">
@@ -43,7 +53,7 @@ function Home() {
           <input type="number" name='contact' value={formInput.contact} onChange={handleChange} className="mt-1 w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
         </div>
 
-        <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">
+        <button onClick={addUser} type="submit" className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">
           Add
         </button>
       </form>
